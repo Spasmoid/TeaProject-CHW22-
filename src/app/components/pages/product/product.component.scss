@@ -1,0 +1,36 @@
+.product-container {
+  gap: 120px;
+}
+
+.product-image {
+  width: 500px;
+}
+
+.product-image img {
+  width: 100%;
+}
+
+.product-body {
+  max-width: 600px;
+}
+
+h3 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.product-description {
+  font-size: 17px;
+}
+
+.product-action a {
+  width: 250px;
+  padding: 12px;
+  font-size: 20px;
+}
+
+.product-price {
+  font-size: 35px;
+  font-weight: 900;
+  margin-left: 50px;
+}

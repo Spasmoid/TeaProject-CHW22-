@@ -1,0 +1,83 @@
+<h2 class="text-center fs-2 my-5 fw-bold">Сделать заказ</h2>
+
+<div *ngIf="orderCreated" class="mb-5 bg-primary bg-gradient py-4 rounded-4 col-lg-6 col-sm-8 col-10 mx-auto" id="order-confirmed">
+  <div class="fs-2 text-center text-white">Спасибо за заказ.</div>
+  <div class="fs-2 text-center text-white"> Мы свяжемся с вами в ближайшее время!</div>
+</div>
+
+<div *ngIf="invalidFormSubmitted" class="common-error text-danger text-center">Заполните все необходимые поля</div>
+
+<form *ngIf="!orderCreated" class="col-lg-6 mx-auto my-0" [formGroup]="orderForm">
+  <div class="row g-4">
+    <div class="col-12 wow animate__slideInLeft">
+      <label for="input-product" class="form-label">Товар</label>
+      <input type="text" class="form-control" id="input-product" name="Товар" readonly formControlName="product">
+    </div>
+    <div class="col-md-4 col-12 wow animate__slideInLeft">
+      <label for="input-name" class="form-label">Имя</label>
+      <input type="text" class="form-control" id="input-name" name="Имя" formControlName="name">
+
+      <div *ngIf="orderForm.get('name')?.invalid && (orderForm.get('name')?.dirty || orderForm.get('name')?.touched)">
+        <div *ngIf="orderForm.get('name')?.errors?.['required']" class="text-danger text-lg-start">Введите имя.</div>
+        <div *ngIf="orderForm.get('name')?.errors?.['pattern']" class="text-danger text-lg-start">Введите существующее имя.</div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12 wow animate__slideInDown">
+      <label for="input-lastname" class="form-label">Фамилия</label>
+      <input type="text" class="form-control" id="input-lastname" name="Фамилия" formControlName="lastName">
+
+      <div *ngIf="orderForm.get('lastName')?.invalid && (orderForm.get('lastName')?.dirty || orderForm.get('lastName')?.touched)">
+        <div *ngIf="orderForm.get('lastName')?.errors?.['required']" class="text-danger text-lg-start">Введите фамилию.</div>
+        <div *ngIf="orderForm.get('lastName')?.errors?.['pattern']" class="text-danger text-lg-start">Введите существующую фамилию.</div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12 wow animate__slideInRight">
+      <label for="input-phone" class="form-label">Телефон</label>
+      <input type="tel" class="form-control" id="input-phone" name="Телефон" formControlName="phone">
+
+      <div *ngIf="orderForm.get('phone')?.invalid && (orderForm.get('phone')?.dirty || orderForm.get('phone')?.touched)">
+        <div *ngIf="orderForm.get('phone')?.errors?.['required']" class="text-danger text-lg-start">Введите номер телефона.</div>
+        <div *ngIf="orderForm.get('phone')?.errors?.['pattern']" class="text-danger text-lg-start">Введите существующий номер.</div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12 wow animate__slideInLeft">
+      <label for="input-country" class="form-label">Страна</label>
+      <input type="text" class="form-control" id="input-country" name="Страна" formControlName="country">
+
+      <div *ngIf="orderForm.get('country')?.invalid && (orderForm.get('country')?.dirty || orderForm.get('country')?.touched)">
+        <div *ngIf="orderForm.get('country')?.errors?.['required']" class="text-danger text-lg-start">Введите страну.</div>
+        <div *ngIf="orderForm.get('country')?.errors?.['pattern']" class="text-danger text-lg-start">Введите существующую страну.</div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12 wow animate__slideInRight">
+      <label for="input-postal-code" class="form-label">Индекс</label>
+      <input type="text" class="form-control" id="input-postal-code" name="Индекс" formControlName="zip">
+
+      <div *ngIf="orderForm.get('zip')?.invalid && (orderForm.get('zip')?.dirty || orderForm.get('zip')?.touched)">
+        <div *ngIf="orderForm.get('zip')?.errors?.['required']" class="text-danger text-lg-start">Введите индекс.</div>
+        <div *ngIf="orderForm.get('zip')?.errors?.['pattern']" class="text-danger text-lg-start">Введите существующий индекс.</div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12 wow animate__slideInUp">
+      <label for="input-address" class="form-label">Адрес</label>
+      <input type="text" class="form-control" id="input-address" name="Адрес" formControlName="address">
+
+      <div *ngIf="orderForm.get('address')?.invalid && (orderForm.get('address')?.dirty || orderForm.get('address')?.touched)">
+        <div *ngIf="orderForm.get('address')?.errors?.['required']" class="text-danger text-lg-start">Введите адрес.</div>
+        <div *ngIf="orderForm.get('address')?.errors?.['pattern']" class="text-danger text-lg-start">Введите существующий адрес.</div>
+      </div>
+    </div>
+    <div class="col-12 wow animate__slideInUp">
+      <label for="input-comment" class="form-label">Комментарий к заказу</label>
+      <input type="text" class="form-control" id="input-comment" name="Комментарий" formControlName="comment">
+    </div>
+    <div class="col-12 wow animate__zoomInLeft">
+      <button [disabled]="isSubmitting" type="submit" class="px-4 py-2 border border-0 rounded-2 bg-primary text-white mb-5 hvr-skew-forward" id="submit-button" (click)="createOrder()">{{isSubmitting ? 'Отправка...' : 'Отправить'}}</button>
+      <span *ngIf="orderError" class="text-danger ms-3">Произошла ошибка. Попробуйте еще раз.</span>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="isSubmitting" class="loader-container">
+  <div class="loader"></div>
+</div>

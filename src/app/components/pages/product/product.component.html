@@ -1,0 +1,13 @@
+<div class="product-container d-flex align-items-center justify-content-center">
+  <div class="product-image">
+    <img src="{{product.image}}" alt="{{product.title}}">
+  </div>
+  <div class="product-body">
+    <h3 class="mb-3">{{product.title}}</h3>
+    <div class="product-description mb-5">{{product.description}}</div>
+    <div class="product-action d-flex align-items-center mb-5">
+      <a [routerLink]="['/order']" [queryParams]="{product: product.title}" class="btn btn-primary">Купить</a>
+      <span class="product-price text-primary">{{product.price | currency: 'RUB' : 'symbol' : '1.0'}}</span>
+    </div>
+  </div>
+</div>

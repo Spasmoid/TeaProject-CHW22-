@@ -1,0 +1,20 @@
+<header class="d-flex justify-content-between align-items-center py-3 px-lg-3 px-2 bg-light mb-5">
+  <nav class="d-flex align-items-center">
+    <div class="fs-1 mb-2 me-3 d-md-none">☰</div>
+    <a href="#" class="me-4">
+      <img src="assets/images/Logo.png" alt="Логотип">
+    </a>
+    <ul class="d-md-flex d-none list-unstyled align-items-center mb-0">
+      <li class="me-3">
+        <a href="#" class="text-decoration-none menu-item" [routerLink]="''" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Главная</a>
+      </li>
+      <li class="me-3">
+        <a href="#" class="text-decoration-none menu-item" [routerLink]="'/catalog'" routerLinkActive="active">Каталог</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="d-flex justify-content-end">
+    <input type="text" placeholder="Поиск чая" class="me-2 px-3 py-2 border border-secondary-subtle rounded-2 w-75">
+    <button class="px-4 py-2 border border-primary rounded-2 bg-transparent text-primary hvr-rotate">Найти</button>
+  </div>
+</header>

@@ -1,0 +1,13 @@
+<div class="col-3 product-container">
+  <div class="card wow animate__bounceInLeft">
+    <a class="product-image">
+      <img src="{{product.image}}" class="card-img-top" alt="{{product.title}}">
+    </a>
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text mb-2">{{product.description | textLimit}}</p>
+      <div class="product-price mb-2">{{product.price |currency: 'RUB' : 'symbol' : '1.0'}}</div>
+      <a href="#" class="btn btn-primary hvr-buzz px-4" [routerLink]="['/product', product.id]">Подробнее</a>
+    </div>
+  </div>
+</div>
