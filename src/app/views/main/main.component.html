@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="slider wow animate__fadeIn">
+    <div>
+      <img src="../../../assets/images/tea-1.png" alt="Чай с апельсином" class="mw-100">
+    </div>
+    <div>
+      <img src="../../../assets/images/tea-2.png" alt="Чай с травами" class="mw-100">
+    </div>
+    <div>
+      <img src="../../../assets/images/tea-3.png" alt="Чай с ягодами" class="mw-100">
+    </div>
+  </div>
+
+  <h2 class="text-center fs-2 my-5 fw-bold">Ответы на часто задаваемые вопросы</h2>
+
+  <ngb-accordion #acc="ngbAccordion" class="d-flex flex-column align-items-center mb-5 w-100" [closeOthers]="true">
+    <ngb-panel id="q1">
+      <ng-template ngbPanelTitle>
+        <h3
+          class="p-4 pe-5 fw-bold mb-3 rounded-3 bg-primary bg-gradient text-white ngb-faq-header faq-header" [class.is-open]="acc.isExpanded('q1')">
+          Собираете ли вы подарочные боксы?
+        </h3>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="border-0 py-3 faq-content">
+          <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
+        </div>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="q2">
+      <ng-template ngbPanelTitle>
+        <h3
+          class="p-4 pe-5 fw-bold mb-3 rounded-3 bg-primary bg-gradient text-white ngb-faq-header faq-header" [class.is-open]="acc.isExpanded('q2')">
+          Сколько у вас разновидностей чая?
+        </h3>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="border-0 py-3 faq-content">
+          <p>У нас в продаже более 50 уникальных сортов чая!</p>
+        </div>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="q3">
+      <ng-template ngbPanelTitle>
+        <h3
+          class="p-4 pe-5 fw-bold mb-3 rounded-3 bg-primary bg-gradient text-white ngb-faq-header faq-header" [class.is-open]="acc.isExpanded('q3')">
+          В какой срок осуществляется доставка?
+        </h3>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="border-0 py-3 faq-content">
+          <p>Доставка осуществляется в течение 1-3 рабочих дней после оформления заказа!</p>
+        </div>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="q4">
+      <ng-template ngbPanelTitle>
+        <h3
+          class="p-4 pe-5 fw-bold mb-3 rounded-3 bg-primary bg-gradient text-white ngb-faq-header faq-header" [class.is-open]="acc.isExpanded('q4')">
+          У вас обновляется ассортимент?
+        </h3>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="border-0 py-3 faq-content">
+          <p>Да, ассортимент нашего магазина регулярно пополняется новыми эксклюзивными видами чая!</p>
+        </div>
+      </ng-template>
+    </ngb-panel>
+
+    <ngb-panel id="q5">
+      <ng-template ngbPanelTitle>
+        <h3
+          class="p-4 pe-5 fw-bold mb-3 rounded-3 bg-primary bg-gradient text-white ngb-faq-header faq-header" [class.is-open]="acc.isExpanded('q5')">
+          Какого объема у вас пачки чая?
+        </h3>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div class="border-0 py-3 faq-content">
+          <p>Мы предлагаем пачки чая объемом от 50 грамм до 1 килограмма!</p>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+<div class="popup" [class.active]="isPopupOpen">
+  <div class="popup-container">
+    <div class="popup-close">
+      <a href="javascript:void(0)" class="btn-close" (click)="closePopup()"></a>
+    </div>
+    <div class="popup-text text-center mt-3 mb-3">Посмотрите наши чайные коллекции!</div>
+    <div class="popup-catalog-link d-flex justify-content-center gap-2">
+      <a href="javascript:void(0)" class="btn btn-primary" routerLink="/catalog">Смотреть</a>
+      <a href="javascript:void(0)" class="btn btn-danger" (click)="closePopup()">Закрыть</a>
+    </div>
+  </div>
+</div>

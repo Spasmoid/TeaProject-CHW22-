@@ -2,7 +2,7 @@
   <nav class="d-flex align-items-center">
     <div class="fs-1 mb-2 me-3 d-md-none">☰</div>
     <a href="#" class="me-4">
-      <img src="assets/images/Logo.png" alt="Логотип">
+      <img src="../../../../assets/images/Logo.png" alt="Логотип">
     </a>
     <ul class="d-md-flex d-none list-unstyled align-items-center mb-0">
       <li class="me-3">
@@ -14,7 +14,8 @@
     </ul>
   </nav>
   <div class="d-flex justify-content-end">
-    <input type="text" placeholder="Поиск чая" class="me-2 px-3 py-2 border border-secondary-subtle rounded-2 w-75">
-    <button class="px-4 py-2 border border-primary rounded-2 bg-transparent text-primary hvr-rotate">Найти</button>
+    <button (click)="clear()" class="px-4 py-2 border border-secondary rounded-2 bg-transparent text-secondary hvr-rotate">Сбросить</button>
+    <input type="text" [(ngModel)]="searchInput" placeholder="Поиск чая" class="ms-2 me-2 px-3 py-2 border border-secondary-subtle rounded-2 w-75">
+    <button (click)="search()" class="px-4 py-2 border border-primary rounded-2 bg-transparent text-primary hvr-rotate">Найти</button>
   </div>
 </header>

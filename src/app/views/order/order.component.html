@@ -1,8 +1,8 @@
-<h2 class="text-center fs-2 my-5 fw-bold">Сделать заказ</h2>
+<h2 *ngIf="!orderCreated" class="text-center fs-2 my-5 fw-bold">Сделать заказ</h2>
 
 <div *ngIf="orderCreated" class="mb-5 bg-primary bg-gradient py-4 rounded-4 col-lg-6 col-sm-8 col-10 mx-auto" id="order-confirmed">
   <div class="fs-2 text-center text-white">Спасибо за заказ.</div>
-  <div class="fs-2 text-center text-white"> Мы свяжемся с вами в ближайшее время!</div>
+  <div class="fs-2 text-center text-white">Мы свяжемся с вами в ближайшее время!</div>
 </div>
 
 <div *ngIf="invalidFormSubmitted" class="common-error text-danger text-center">Заполните все необходимые поля</div>

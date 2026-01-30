@@ -32,7 +32,13 @@
   left: 9px;
 }
 
-.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e {
+.ngb-faq-header {
+  position: relative;
+  cursor: pointer;
+}
+
+.ngb-faq-header::after {
+  content: "";
   width: 20px;
   height: 20px;
   background-image: url("assets/images/arrow-bottom.svg");
@@ -44,29 +50,58 @@
   top: calc(50% - 6px);
 }
 
-.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-s {
-  width: 20px;
-  height: 20px;
+.ngb-faq-header.is-open::after {
   background-image: url("assets/images/arrow-top.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  right: 28px;
-  top: calc(50% - 6px);
 }
 
-.ui-accordion .ui-accordion-header {
-  display: block;
-  cursor: pointer;
-  position: relative;
-  margin: 2px 0 0 0;
-  padding: .5em .5em .5em .7em;
+.ngb-accordion .accordion-collapse {
+  transition: height 250ms ease;
+}
+
+ngb-accordion .accordion-item {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+ngb-accordion .accordion-header {
+  margin: 0 !important;
+}
+
+ngb-accordion .accordion-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+ngb-accordion .accordion-button::after {
+  display: none !important;
+}
+
+ngb-accordion .accordion-body {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.faq-accordion {
+  width: 1200px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-header,
+.faq-content {
+  width: 950px;
+}
+
+.faq-header {
   font-size: 100%;
 }
 
-.ui-accordion .ui-accordion-content {
-  padding: 1em 2.2em;
-  border-top: 0;
-  overflow: auto;
+.faq-content {
+  padding: 16px 35.2px;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

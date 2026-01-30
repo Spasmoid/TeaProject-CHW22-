@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {ProductType} from "../types/product.type";
+import {ProductType} from "../../../types/product.type";
 import {HttpClient} from "@angular/common/http";
-import {OrderDataType} from "../types/order-data.type";
-import {ResponseType} from "../types/response.type";
+import {OrderDataType} from "../../../types/order-data.type";
+import {ResponseType} from "../../../types/response.type";
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class ProductHttpService {
 
   constructor(private http: HttpClient) { }
 
-  public getProducts(): Observable<ProductType[]> {
-    return this.http.get<ProductType[]>('https://testologia.ru/tea');
+  public getProducts(param: string = ''): Observable<ProductType[]> {
+    return this.http.get<ProductType[]>('https://testologia.ru/tea?search=' + param);
   }
 
   public getProduct(id: number): Observable<ProductType> {

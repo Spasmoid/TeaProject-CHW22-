@@ -2,9 +2,9 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {finalize, Subscription, tap} from "rxjs";
 import {FormBuilder, Validators} from "@angular/forms";
-import {ProductHttpService} from "../../../services/product-http.service";
+import {ProductHttpService} from "../../shared/services/product-http.service";
 import {OrderDataType} from "../../../types/order-data.type";
-import {clearTimeout} from "node:timers";
+import {SearchService} from "../../shared/services/search.service";
 
 @Component({
   selector: 'app-order',
@@ -28,10 +28,9 @@ export class OrderComponent implements OnInit, OnDestroy {
   public orderCreated: boolean = false;
   public invalidFormSubmitted: boolean = false;
   public orderError: boolean = false;
-
   public isSubmitting: boolean = false;
 
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router, private productHttpService: ProductHttpService) { }
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router, private productHttpService: ProductHttpService, private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.subscription = this.activatedRoute.queryParams.subscribe(param => {

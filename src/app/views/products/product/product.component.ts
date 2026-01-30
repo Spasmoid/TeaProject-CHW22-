@@ -1,7 +1,7 @@
 import {Component, LOCALE_ID, OnDestroy, OnInit} from '@angular/core';
-import {ProductType} from "../../../types/product.type";
+import {ProductType} from "../../../../types/product.type";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductHttpService} from "../../../services/product-http.service";
+import {ProductHttpService} from "../../../shared/services/product-http.service";
 import {Subscription} from "rxjs";
 import {registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';

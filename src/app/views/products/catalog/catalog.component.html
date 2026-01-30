@@ -1,0 +1,10 @@
+<div class="container">
+  <h2 *ngIf="products.length > 0 && !searchParam" class="text-center fs-2 my-5 fw-bold">Наши чайные коллекции</h2>
+  <h2 *ngIf="products.length > 0 && searchParam" class="text-center fs-2 my-5 fw-bold">Результаты поиска по запросу: {{searchParam}}</h2>
+  <h2 *ngIf="products.length <= 0 && searchParam" class="text-center fs-2 my-5 fw-bold">По запросу "{{searchParam}}" ничего не найдено</h2>
+
+  <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1 gy-4 align-items-center mb-5 justify-content-center">
+    <product-card *ngFor="let product of products" [product]="product"></product-card>
+  </div>
+
+</div>

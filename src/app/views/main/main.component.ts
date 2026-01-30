@@ -59,10 +59,6 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
       "</clipPath>\n" +
       "</defs>\n" +
       "</svg>\n");
-
-    $( function() {
-      $( "#accordion" ).accordion();
-    } );
   }
 
   closePopup() {

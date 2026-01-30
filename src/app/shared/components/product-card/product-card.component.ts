@@ -1,5 +1,5 @@
 import {Component, Input, LOCALE_ID, OnInit} from '@angular/core';
-import {ProductType} from "../../../types/product.type";
+import {ProductType} from "../../../../types/product.type";
 import {registerLocaleData} from "@angular/common";
 import localeRu from '@angular/common/locales/ru';
 registerLocaleData(localeRu);
